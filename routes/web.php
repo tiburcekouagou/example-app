@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $environment = App::environment();
-    dd($environment);
+    $timezone = config('app.timezone');
+    $language = config('app.locale');
+    dd($timezone, $language);
     return view('welcome');
 });
