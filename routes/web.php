@@ -20,3 +20,11 @@ Route::get('/', function () {
     dd($timezone, $language);
     return view('welcome');
 });
+
+Route::get('/user/{name?}', function(?string $name = 'John') {
+    return 'user : ' . $name;
+})->where('name', '[a-z\_\-]+');
+
+Route::get('/user/{id}', function (string $id) {
+    return 'id : ' . $id;
+})->where('id', '[0-9]+');
